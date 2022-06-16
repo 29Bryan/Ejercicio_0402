@@ -5,6 +5,7 @@
 
 package com.mycompany.ejercicio_03_04;
 
+import Vista.CreateAsignatura;
 import Vista.CreateEstudiante;
 
 /**
@@ -15,7 +16,9 @@ public class Ejercicio_03_04 {
 
     public static void main(String[] args) {
         var v1 = new CreateEstudiante();
+        var v2 = new CreateAsignatura();
         
         v1.setVisible(true);
+        v2.setVisible(true);
     }
 }

@@ -19,7 +19,7 @@ public class AsignaturaControl {
     private final EstudianteServicio estudianteServicio = new EstudianteServicio(); 
     
     public Asignatura crear(String [] args){
-        Estudiante estudiante = this.estudianteServicio.buscarPorNumeroCedula(Integer.valueOf(args[2]));
+        Estudiante estudiante = this.estudianteServicio.buscarPorNumeroCedula(Integer.valueOf(args[5]));
         Asignatura asignatura = new Asignatura(args[0], args[1], args[2], args[3], Integer.valueOf(args[4]), estudiante); 
         this.asignaturaServicio.crear(asignatura); 
         return asignatura; 
