@@ -14,7 +14,8 @@ public class Asignatura {
     private String modalidad; 
     private String costoHora; 
     private int numeroHoras;  
-    private Estudiante estudiante; 
+    private Estudiante estudiante;
+    private Calificacion calificacion; 
 
     public Asignatura(String nombre, String codigo, String modalidad, String costoHora, int numeroHoras) {
         this.nombre = nombre;

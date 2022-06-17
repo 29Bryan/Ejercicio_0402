@@ -7,6 +7,8 @@ package com.mycompany.ejercicio_03_04;
 
 import Vista.CreateAsignatura;
 import Vista.CreateEstudiante;
+import Vista.DeleteAsignatura;
+import Vista.UpdateAsignatura;
 
 /**
  *
@@ -17,8 +19,12 @@ public class Ejercicio_03_04 {
     public static void main(String[] args) {
         var v1 = new CreateEstudiante();
         var v2 = new CreateAsignatura();
+        var v3 = new UpdateAsignatura(); 
+        var v4 = new DeleteAsignatura(); 
         
         v1.setVisible(true);
         v2.setVisible(true);
+        v3.setVisible(true);
+        v4.setVisible(true);
     }
 }

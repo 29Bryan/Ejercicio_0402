@@ -5,6 +5,7 @@
 package Vista;
 
 import Controlador.AsignaturaControl;
+import Modelo.Asignatura;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -12,12 +13,12 @@ import javax.swing.table.TableModel;
  *
  * @author PCG
  */
-public class CreateAsignatura extends javax.swing.JFrame {
+public class DeleteAsignatura extends javax.swing.JFrame {
 
     /**
      * Creates new form CreateAsignatura
      */
-    public CreateAsignatura() {
+    public DeleteAsignatura() {
         initComponents();
     }
 
@@ -61,9 +62,21 @@ public class CreateAsignatura extends javax.swing.JFrame {
 
         jLabel6.setText("Ingrese la Cedula del Estudiante:");
 
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Presencial", "Linea", "Híbrida" }));
 
-        jButton1.setText("Guardar");
+        jButton1.setText("Eliminar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -175,23 +188,33 @@ public class CreateAsignatura extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        String [] args = new String[6];
-        
-        args[0]=this.jTextField1.getText();
-        args[1]=this.jTextField2.getText();
-        args[2]=this.jComboBox1.getSelectedItem().toString();
-        args[3]=this.jTextField3.getText();
-        args[4]=this.jTextField4.getText();
-        args[5]=this.jTextField5.getText();
-        
-        this.asignaturaControl.crear(args); 
+        // TODO add your handling code here:     
+        String arg; 
+        arg=this.jTextField2.getText(); 
+        this.asignaturaControl.elminar(arg); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         this.actualizarTable1();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+        String arg = this.jTextField2.getText(); 
+        Asignatura dato = this.asignaturaControl.buscarAsignatura(arg);
+        
+        this.jTextField1.setText(dato.getNombre());
+//        this.jComboBox1.setSelectedItem(asignatura.getModalidad());
+        this.jTextField3.setText(dato.getCostoHora());
+        this.jTextField4.setText(String.valueOf(dato.getNumeroHoras()));
+        this.jTextField5.setText(String.valueOf(dato.getEstudiante().getNumeroCedula()));
+    }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void actualizarTable1(){
         String [] encabezado = new String[6];
@@ -236,27 +259,21 @@ public class CreateAsignatura extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CreateAsignatura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DeleteAsignatura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CreateAsignatura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DeleteAsignatura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CreateAsignatura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DeleteAsignatura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CreateAsignatura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DeleteAsignatura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CreateAsignatura().setVisible(true);
+                new DeleteAsignatura().setVisible(true);
             }
         });
     }

@@ -33,6 +33,13 @@ public class AsignaturaControl {
         return this.asignaturaServicio.eliminar(arg);
     }
     
+    public Asignatura modificar (String [] args){
+        Estudiante estudiante = this.estudianteServicio.buscarPorNumeroCedula(Integer.valueOf(args[3])); 
+        Asignatura asignaturaNueva = new Asignatura(args[0], args[1], args[2], args[3], Integer.valueOf(args[4]), estudiante);
+        this.asignaturaServicio.modificar(args[1], asignaturaNueva);
+        return asignaturaNueva;
+    }
+    
     public List<Asignatura>listar(){
         return this.asignaturaServicio.listar(); 
     }
