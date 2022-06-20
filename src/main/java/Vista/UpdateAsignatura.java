@@ -70,6 +70,12 @@ public class UpdateAsignatura extends javax.swing.JFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Presencial", "Linea", "Híbrida" }));
 
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
+
         jButton1.setText("Modificar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -203,14 +209,20 @@ public class UpdateAsignatura extends javax.swing.JFrame {
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
         String arg = this.jTextField2.getText(); 
+        
         Asignatura dato = this.asignaturaControl.buscarAsignatura(arg);
+        System.out.println(dato.toString());
         
         this.jTextField1.setText(dato.getNombre());
-//        this.jComboBox1.setSelectedItem(asignatura.getModalidad());
+        this.jComboBox1.setSelectedItem(dato.getModalidad());
         this.jTextField3.setText(dato.getCostoHora());
         this.jTextField4.setText(String.valueOf(dato.getNumeroHoras()));
         this.jTextField5.setText(String.valueOf(dato.getEstudiante().getNumeroCedula()));
     }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
 
     private void actualizarTable1(){
         String [] encabezado = new String[6];

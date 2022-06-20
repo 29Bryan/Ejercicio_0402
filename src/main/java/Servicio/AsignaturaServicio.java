@@ -45,7 +45,7 @@ public class AsignaturaServicio implements IAsignaturaServicio{
     public Asignatura buscarPorCodigoAsignatura(String codigo) {
         Asignatura asignatura=null; 
         for(var b:this.asignaturaList){
-            if(codigo==b.getCodigo()){ 
+            if(codigo.equals(b.getCodigo())){ 
                 asignatura=b;
                 break;
             } 
