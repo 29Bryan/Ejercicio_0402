@@ -4,6 +4,9 @@
  */
 package Menus;
 
+import VistaAsignatura.CreateAsignatura;
+import VistaAsignatura.DeleteAsignatura;
+import VistaAsignatura.UpdateAsignatura;
 import VistaEstudiante.CreateEstudiante;
 
 
@@ -47,7 +50,7 @@ public class VentanaEstudianteAsignatura extends javax.swing.JFrame {
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 596, Short.MAX_VALUE)
+            .addGap(0, 609, Short.MAX_VALUE)
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -69,6 +72,11 @@ public class VentanaEstudianteAsignatura extends javax.swing.JFrame {
         jMenu2.setText("Asignatura");
 
         jMenuItem2.setText("Crear");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem2);
 
         jMenuItem3.setText("Modificar");
@@ -80,6 +88,11 @@ public class VentanaEstudianteAsignatura extends javax.swing.JFrame {
         jMenu2.add(jMenuItem3);
 
         jMenuItem4.setText("Eliminar");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem4);
 
         jMenuBar1.add(jMenu2);
@@ -108,6 +121,12 @@ public class VentanaEstudianteAsignatura extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
+        var updateAsignatura = new UpdateAsignatura(); 
+        updateAsignatura.setIconifiable(true);
+        updateAsignatura.setClosable(true);
+        updateAsignatura.setResizable(true);
+        this.jDesktopPane1.add(updateAsignatura); 
+        updateAsignatura.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -119,6 +138,26 @@ public class VentanaEstudianteAsignatura extends javax.swing.JFrame {
         this.jDesktopPane1.add(createEstudiante);
         createEstudiante.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        var createAsignatura = new CreateAsignatura(); 
+        createAsignatura.setIconifiable(true);
+        createAsignatura.setClosable(true);
+        createAsignatura.setResizable(true);
+        this.jDesktopPane1.add(createAsignatura); 
+        createAsignatura.setVisible(true); 
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        var deleteAsignatura = new DeleteAsignatura(); 
+        deleteAsignatura.setIconifiable(true);
+        deleteAsignatura.setClosable(true);
+        deleteAsignatura.setResizable(true);
+        this.jDesktopPane1.add(deleteAsignatura); 
+        deleteAsignatura.setVisible(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments

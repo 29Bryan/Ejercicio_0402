@@ -12,7 +12,7 @@ import javax.swing.table.TableModel;
  *
  * @author PCG
  */
-public class CreateAsignatura extends javax.swing.JFrame {
+public class CreateAsignatura extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form CreateAsignatura
@@ -129,7 +129,7 @@ public class CreateAsignatura extends javax.swing.JFrame {
                                 .addComponent(jButton1)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton2)))
-                        .addGap(0, 55, Short.MAX_VALUE))
+                        .addGap(0, 83, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))

@@ -13,7 +13,7 @@ import javax.swing.table.TableModel;
  *
  * @author PCG
  */
-public class DeleteAsignatura extends javax.swing.JFrame {
+public class DeleteAsignatura extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form CreateAsignatura
