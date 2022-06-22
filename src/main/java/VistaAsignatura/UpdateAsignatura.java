@@ -2,9 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Vista;
+package VistaAsignatura;
 
 import Controlador.AsignaturaControl;
+import Modelo.Asignatura;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -12,12 +13,12 @@ import javax.swing.table.TableModel;
  *
  * @author PCG
  */
-public class CreateAsignatura extends javax.swing.JFrame {
+public class UpdateAsignatura extends javax.swing.JFrame {
 
     /**
      * Creates new form CreateAsignatura
      */
-    public CreateAsignatura() {
+    public UpdateAsignatura() {
         initComponents();
     }
 
@@ -61,9 +62,21 @@ public class CreateAsignatura extends javax.swing.JFrame {
 
         jLabel6.setText("Ingrese la Cedula del Estudiante:");
 
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Presencial", "Linea", "Híbrida" }));
 
-        jButton1.setText("Guardar");
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Modificar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -185,13 +198,31 @@ public class CreateAsignatura extends javax.swing.JFrame {
         args[4]=this.jTextField4.getText();
         args[5]=this.jTextField5.getText();
         
-        this.asignaturaControl.crear(args); 
+        this.asignaturaControl.modificar(args); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         this.actualizarTable1();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+        String arg = this.jTextField2.getText(); 
+        
+        Asignatura dato = this.asignaturaControl.buscarAsignatura(arg);
+        System.out.println(dato.toString());
+        
+        this.jTextField1.setText(dato.getNombre());
+        this.jComboBox1.setSelectedItem(dato.getModalidad());
+        this.jTextField3.setText(dato.getCostoHora());
+        this.jTextField4.setText(String.valueOf(dato.getNumeroHoras()));
+        this.jTextField5.setText(String.valueOf(dato.getEstudiante().getNumeroCedula()));
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
 
     private void actualizarTable1(){
         String [] encabezado = new String[6];
@@ -236,18 +267,14 @@ public class CreateAsignatura extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CreateAsignatura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateAsignatura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CreateAsignatura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateAsignatura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CreateAsignatura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateAsignatura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CreateAsignatura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateAsignatura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -256,7 +283,7 @@ public class CreateAsignatura extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CreateAsignatura().setVisible(true);
+                new UpdateAsignatura().setVisible(true);
             }
         });
     }

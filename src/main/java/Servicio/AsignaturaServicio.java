@@ -58,7 +58,7 @@ public class AsignaturaServicio implements IAsignaturaServicio{
         int posicion=-1; 
         for(var b:this.asignaturaList){
             posicion++; 
-            if(b.getCodigo()==asignatura.getCodigo()){
+            if(b.getCodigo().equals(asignatura.getCodigo())){
                 break;
             }
         }

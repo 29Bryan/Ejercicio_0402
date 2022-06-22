@@ -5,10 +5,10 @@
 
 package com.mycompany.ejercicio_03_04;
 
-import Vista.CreateAsignatura;
-import Vista.CreateEstudiante;
-import Vista.DeleteAsignatura;
-import Vista.UpdateAsignatura;
+import VistaAsignatura.CreateAsignatura;
+import VistaAsignatura.CreateEstudiante;
+import VistaAsignatura.DeleteAsignatura;
+import VistaAsignatura.UpdateAsignatura;
 
 /**
  *
