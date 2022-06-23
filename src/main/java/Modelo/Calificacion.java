@@ -9,54 +9,65 @@ package Modelo;
  * @author PCG
  */
 public class Calificacion {
-    private int notafinal;
-    private int notaObtenida; 
-    private int notaMaxima; 
-    private int notaMinima; 
+    private String nivel; 
+    private String asignatura; 
+    private int grupo; 
+    private int calificacionFinal; 
+    private String estadoAsignatura; 
 
-    public Calificacion(int notafinal, int notaObtenida, int notaMaxima, int notaMinima) {
-        this.notafinal = notafinal;
-        this.notaObtenida = notaObtenida;
-        this.notaMaxima = notaMaxima;
-        this.notaMinima = notaMinima;
+    public Calificacion(String nivel, String asignatura, int grupo, int calificacionFinal, String estadoAsignatura) {
+        this.nivel = nivel;
+        this.asignatura = asignatura;
+        this.grupo = grupo;
+        this.calificacionFinal = calificacionFinal;
+        this.estadoAsignatura = estadoAsignatura;
     }
 
-    public int getNotafinal() {
-        return notafinal;
+    public String getNivel() {
+        return nivel;
     }
 
-    public void setNotafinal(int notafinal) {
-        this.notafinal = notafinal;
+    public void setNivel(String nivel) {
+        this.nivel = nivel;
     }
 
-    public int getNotaObtenida() {
-        return notaObtenida;
+    public String getAsignatura() {
+        return asignatura;
     }
 
-    public void setNotaObtenida(int notaObtenida) {
-        this.notaObtenida = notaObtenida;
+    public void setAsignatura(String asignatura) {
+        this.asignatura = asignatura;
     }
 
-    public int getNotaMaxima() {
-        return notaMaxima;
+    public int getGrupo() {
+        return grupo;
     }
 
-    public void setNotaMaxima(int notaMaxima) {
-        this.notaMaxima = notaMaxima;
+    public void setGrupo(int grupo) {
+        this.grupo = grupo;
     }
 
-    public int getNotaMinima() {
-        return notaMinima;
+    public int getCalificacionFinal() {
+        return calificacionFinal;
     }
 
-    public void setNotaMinima(int notaMinima) {
-        this.notaMinima = notaMinima;
+    public void setCalificacionFinal(int calificacionFinal) {
+        this.calificacionFinal = calificacionFinal;
+    }
+
+    public String getEstadoAsignatura() {
+        return estadoAsignatura;
+    }
+
+    public void setEstadoAsignatura(String estadoAsignatura) {
+        this.estadoAsignatura = estadoAsignatura;
     }
 
     @Override
     public String toString() {
-        return "Calificacion{" + "notafinal=" + notafinal + ", notaObtenida=" + notaObtenida + ", notaMaxima=" + notaMaxima + ", notaMinima=" + notaMinima + '}';
+        return "Calificacion{" + "nivel=" + nivel + ", asignatura=" + 
+                             asignatura + ", grupo=" + grupo + 
+                             ", calificacionFinal=" + calificacionFinal + 
+                             ", estadoAsignatura=" + estadoAsignatura + '}';
     }
-
-    
 }
