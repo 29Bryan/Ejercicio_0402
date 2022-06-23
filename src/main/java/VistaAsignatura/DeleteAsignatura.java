@@ -6,6 +6,7 @@ package VistaAsignatura;
 
 import Controlador.AsignaturaControl;
 import Modelo.Asignatura;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -191,7 +192,10 @@ public class DeleteAsignatura extends javax.swing.JInternalFrame {
         // TODO add your handling code here:     
         String arg; 
         arg=this.jTextField2.getText(); 
-        this.asignaturaControl.elminar(arg); 
+        if(JOptionPane.showConfirmDialog(this, "Esta seguro de eliminar")==0){
+            this.asignaturaControl.elminar(arg);
+        }
+         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

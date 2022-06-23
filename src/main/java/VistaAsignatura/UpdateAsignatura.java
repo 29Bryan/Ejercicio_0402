@@ -6,6 +6,7 @@ package VistaAsignatura;
 
 import Controlador.AsignaturaControl;
 import Modelo.Asignatura;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -199,6 +200,9 @@ public class UpdateAsignatura extends javax.swing.JInternalFrame {
         args[5]=this.jTextField5.getText();
         
         this.asignaturaControl.modificar(args); 
+        
+        JOptionPane.showConfirmDialog(this, "Usuario Actualizado",
+                                      "Modificar Asignatura",JOptionPane.ERROR_MESSAGE); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

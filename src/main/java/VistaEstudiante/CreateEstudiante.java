@@ -5,6 +5,7 @@
 package VistaEstudiante;
 
 import Controlador.EstudianteControl;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -175,6 +176,8 @@ public class CreateEstudiante extends javax.swing.JInternalFrame {
         args[3]=this.jTextField4.getText();
         args[4]=this.jComboBox1.getSelectedItem().toString();
         estudianteControl.crear(args); 
+        JOptionPane.showConfirmDialog(this, "Usuario Creado",
+                                      "Estudiante",JOptionPane.ERROR_MESSAGE); 
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

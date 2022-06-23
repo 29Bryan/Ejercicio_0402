@@ -8,6 +8,7 @@ import VistaAsignatura.CreateAsignatura;
 import VistaAsignatura.DeleteAsignatura;
 import VistaAsignatura.UpdateAsignatura;
 import VistaEstudiante.CreateEstudiante;
+import javax.swing.JInternalFrame;
 
 
 
@@ -127,6 +128,7 @@ public class VentanaEstudianteAsignatura extends javax.swing.JFrame {
         updateAsignatura.setResizable(true);
         this.jDesktopPane1.add(updateAsignatura); 
         updateAsignatura.setVisible(true);
+        updateAsignatura.setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -137,6 +139,7 @@ public class VentanaEstudianteAsignatura extends javax.swing.JFrame {
         createEstudiante.setResizable(true);
         this.jDesktopPane1.add(createEstudiante);
         createEstudiante.setVisible(true);
+        createEstudiante.setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -147,6 +150,7 @@ public class VentanaEstudianteAsignatura extends javax.swing.JFrame {
         createAsignatura.setResizable(true);
         this.jDesktopPane1.add(createAsignatura); 
         createAsignatura.setVisible(true); 
+        createAsignatura.setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
@@ -157,6 +161,7 @@ public class VentanaEstudianteAsignatura extends javax.swing.JFrame {
         deleteAsignatura.setResizable(true);
         this.jDesktopPane1.add(deleteAsignatura); 
         deleteAsignatura.setVisible(true);
+        deleteAsignatura.setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
