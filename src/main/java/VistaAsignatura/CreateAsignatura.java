@@ -177,18 +177,23 @@ public class CreateAsignatura extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String [] args = new String[6];
         
-        args[0]=this.jTextField1.getText();
-        args[1]=this.jTextField2.getText();
-        args[2]=this.jComboBox1.getSelectedItem().toString();
-        args[3]=this.jTextField3.getText();
-        args[4]=this.jTextField4.getText();
-        args[5]=this.jTextField5.getText();
+        if(JOptionPane.showConfirmDialog(this, "¿Esta seguro de registrar estos Datos?",
+                                         "Seleccione una opcion",JOptionPane.YES_NO_CANCEL_OPTION,
+                                         JOptionPane.QUESTION_MESSAGE)==0){
+            String [] args = new String[6];
         
-        this.asignaturaControl.crear(args); 
-        JOptionPane.showConfirmDialog(this, "Asignatura Creada",
-                                      "Asignatura",JOptionPane.ERROR_MESSAGE);
+            args[0]=this.jTextField1.getText();
+            args[1]=this.jTextField2.getText();
+            args[2]=this.jComboBox1.getSelectedItem().toString();
+            args[3]=this.jTextField3.getText();
+            args[4]=this.jTextField4.getText();
+            args[5]=this.jTextField5.getText();
+
+            this.asignaturaControl.crear(args); 
+            JOptionPane.showMessageDialog(this, "Asignatura Registrada con Exito",
+                                          "Registro de Asignaturas",JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

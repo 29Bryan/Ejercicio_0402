@@ -169,15 +169,20 @@ public class CreateEstudiante extends javax.swing.JInternalFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        String [] args = new String[5];
-        args[0]=this.jTextField1.getText();
-        args[1]=this.jTextField2.getText();
-        args[2]=this.jTextField3.getText();
-        args[3]=this.jTextField4.getText();
-        args[4]=this.jComboBox1.getSelectedItem().toString();
-        estudianteControl.crear(args); 
-        JOptionPane.showConfirmDialog(this, "Usuario Creado",
-                                      "Estudiante",JOptionPane.ERROR_MESSAGE); 
+        
+        if(JOptionPane.showConfirmDialog(this, "¿Esta seguro de registrar estos Datos?",
+                                         "Seleccione una opcion",JOptionPane.YES_NO_CANCEL_OPTION,
+                                         JOptionPane.QUESTION_MESSAGE)==0){
+            String [] args = new String[5];
+            args[0]=this.jTextField1.getText();
+            args[1]=this.jTextField2.getText();
+            args[2]=this.jTextField3.getText();
+            args[3]=this.jTextField4.getText();
+            args[4]=this.jComboBox1.getSelectedItem().toString();
+            estudianteControl.crear(args); 
+            JOptionPane.showMessageDialog(this, "Usuario Creado con Exito",
+                                          "Registro de Estudiantes",JOptionPane.ERROR_MESSAGE); 
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

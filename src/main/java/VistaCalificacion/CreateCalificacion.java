@@ -155,17 +155,22 @@ public class CreateCalificacion extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String [] args = new String[5];
-        args[0]=this.jTextField1.getText();
-        args[1]=this.jTextField2.getText();
-        args[2]=this.jTextField3.getText();
-        args[3]=this.jTextField4.getText();
-        args[4]=this.jComboBox1.getSelectedItem().toString();
         
-        calificacionControl.crear(args); 
-        
-        JOptionPane.showConfirmDialog(this, "Calificacion Registrada",
-                                      "Calificacion",JOptionPane.ERROR_MESSAGE);
+        if(JOptionPane.showConfirmDialog(this, "¿Esta seguro de registrar estos Datos?",
+                                         "Seleccione una opcion",JOptionPane.YES_NO_CANCEL_OPTION,
+                                         JOptionPane.QUESTION_MESSAGE)==0){
+            String [] args = new String[5];
+            args[0]=this.jTextField1.getText();
+            args[1]=this.jTextField2.getText();
+            args[2]=this.jTextField3.getText();
+            args[3]=this.jTextField4.getText();
+            args[4]=this.jComboBox1.getSelectedItem().toString();
+
+            calificacionControl.crear(args); 
+
+            JOptionPane.showMessageDialog(this, "Calificacion Registrada con Exito",
+                                          "Registro de Calificaciones",JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
