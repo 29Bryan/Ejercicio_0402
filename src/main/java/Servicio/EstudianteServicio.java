@@ -18,7 +18,13 @@ public class EstudianteServicio implements IEstudianteServicio{
 
     @Override
     public Estudiante crear(Estudiante estudiante) {
-        this.estudianteList.add(estudiante);
+        var estudianteBuscado = this.buscarPorNumeroCedula(estudiante.getNumeroCedula()); 
+        if(estudianteBuscado==null){
+            this.estudianteList.add(estudiante);
+        }else{
+            throw new RuntimeException("La Cedula ingresada ya se encuentra "
+                    +"asignado el Estudiante: "+ estudianteBuscado.getNombre()); 
+        }
         return estudiante;
     }
 

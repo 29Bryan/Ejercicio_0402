@@ -179,9 +179,15 @@ public class CreateEstudiante extends javax.swing.JInternalFrame {
             args[2]=this.jTextField3.getText();
             args[3]=this.jTextField4.getText();
             args[4]=this.jComboBox1.getSelectedItem().toString();
-            estudianteControl.crear(args); 
-            JOptionPane.showMessageDialog(this, "Usuario Creado con Exito",
-                                          "Registro de Estudiantes",JOptionPane.ERROR_MESSAGE); 
+            
+            try{
+                estudianteControl.crear(args); 
+                JOptionPane.showMessageDialog(this, "Usuario Creado con Exito",
+                                          "Registro de Estudiantes",JOptionPane.INFORMATION_MESSAGE); 
+            }catch(RuntimeException e){
+                JOptionPane.showMessageDialog(this, e.getMessage(),
+                        "Error al almacenar Estudiante",JOptionPane.ERROR_MESSAGE);
+            }
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 

@@ -15,7 +15,7 @@ import java.util.List;
 public class EstudianteControl {
     private final EstudianteServicio estudianteServicio = new EstudianteServicio();
     
-    public Estudiante crear(String [] args){
+    public Estudiante crear(String [] args)throws RuntimeException{
         var estudiante=new Estudiante(args[0],Integer.valueOf(args[1]),Integer.valueOf(args[2]),args[3],args[4]);
         this.estudianteServicio.crear(estudiante);
         return estudiante;
