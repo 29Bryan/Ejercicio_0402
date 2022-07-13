@@ -18,7 +18,13 @@ public class AsignaturaServicio implements IAsignaturaServicio{
 
     @Override
     public Asignatura crear(Asignatura asignatura) {
-        this.asignaturaList.add(asignatura); 
+        var asignaturaBuscada = this.buscarPorCodigoAsignatura(asignatura.getCodigo()); 
+        if(asignaturaBuscada==null){
+            this.asignaturaList.add(asignatura); 
+        }else{
+            throw new RuntimeException("El Codigo ingresado ya se encuentra" 
+                                    + "asignado a la Asignatura: "+ asignaturaBuscada.getNombre()); 
+        }
         return asignatura; 
     }
 

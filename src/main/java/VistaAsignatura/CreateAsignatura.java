@@ -189,10 +189,16 @@ public class CreateAsignatura extends javax.swing.JInternalFrame {
             args[3]=this.jTextField3.getText();
             args[4]=this.jTextField4.getText();
             args[5]=this.jTextField5.getText();
+            
+            try{
+                this.asignaturaControl.crear(args); 
+                JOptionPane.showMessageDialog(this, "Asignatura Registrada con Exito",
+                                              "Registro de Asignaturas",JOptionPane.INFORMATION_MESSAGE);
+            }catch(RuntimeException e){
+                JOptionPane.showMessageDialog(this, e.getMessage(),
+                        "Error al almacenar Asignatura",JOptionPane.ERROR_MESSAGE);
+            }
 
-            this.asignaturaControl.crear(args); 
-            JOptionPane.showMessageDialog(this, "Asignatura Registrada con Exito",
-                                          "Registro de Asignaturas",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
