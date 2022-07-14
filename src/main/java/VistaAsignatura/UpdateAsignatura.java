@@ -202,11 +202,18 @@ public class UpdateAsignatura extends javax.swing.JInternalFrame {
             args[3]=this.jTextField3.getText();
             args[4]=this.jTextField4.getText();
             args[5]=this.jTextField5.getText();
+            
+            try{
+                this.asignaturaControl.modificar(args); 
 
-            this.asignaturaControl.modificar(args); 
+                JOptionPane.showMessageDialog(this, "Asignatura del Usuario Actualizado",
+                                              "Modificar Asignatura",JOptionPane.INFORMATION_MESSAGE);
+            }catch(RuntimeException e){
+                JOptionPane.showMessageDialog(this, e.getMessage(),
+                        "Error al modificar la Asignatura",JOptionPane.ERROR_MESSAGE);
+            }
 
-            JOptionPane.showMessageDialog(this, "Asignatura del Usuario Actualizado",
-                                          "Modificar Asignatura",JOptionPane.ERROR_MESSAGE);
+            
         }      
     }//GEN-LAST:event_jButton1ActionPerformed
 
