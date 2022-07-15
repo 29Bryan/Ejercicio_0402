@@ -16,12 +16,23 @@ public class CalifiacionControl {
     private final CalificacionServicio calificacionServicio = new CalificacionServicio(); 
     
     public Calificacion crear(String [] args) throws RuntimeException{
-        var calificacion = new Calificacion(args[0], args[1], Integer.valueOf(args[2]), Integer.valueOf(args[3]), args[4]); 
+        var calificacion = new Calificacion(args[0], args[1], convertirEntero(args[2]), convertirEntero(args[3]), args[4]); 
         this.calificacionServicio.crear(calificacion); 
         return calificacion; 
     }
     
     public List<Calificacion> listar(){
         return this.calificacionServicio.listar(); 
+    }
+    
+    private int convertirEntero(String numero)
+    {
+        try{
+            return Integer.valueOf(numero);
+        }catch(NumberFormatException e){
+            throw new RuntimeException("Valor ingresado no es un número entero"); 
+        }catch(Exception e){
+            throw new RuntimeException("Error inesperado"); 
+        }
     }
 }

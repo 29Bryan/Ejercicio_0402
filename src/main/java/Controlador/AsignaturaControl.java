@@ -20,7 +20,7 @@ public class AsignaturaControl {
     
     public Asignatura crear(String [] args) throws RuntimeException{
         Estudiante estudiante = this.estudianteServicio.buscarPorNumeroCedula(Integer.valueOf(args[5]));
-        Asignatura asignatura = new Asignatura(args[0], args[1], args[2], args[3], Integer.valueOf(args[4]), estudiante); 
+        Asignatura asignatura = new Asignatura(args[0], args[1], args[2], args[3], convertirEntero(args[4]), estudiante); 
         this.asignaturaServicio.crear(asignatura); 
         return asignatura; 
     }
@@ -35,12 +35,23 @@ public class AsignaturaControl {
     
     public Asignatura modificar (String [] args){
         Estudiante estudiante = this.estudianteServicio.buscarPorNumeroCedula(Integer.valueOf(args[5])); 
-        Asignatura asignaturaNueva = new Asignatura(args[0], args[1], args[2], args[3], Integer.valueOf(args[4]), estudiante);
+        Asignatura asignaturaNueva = new Asignatura(args[0], args[1], args[2], args[3], convertirEntero(args[4]), estudiante);
         this.asignaturaServicio.modificar(args[1], asignaturaNueva);
         return asignaturaNueva;
     }
     
     public List<Asignatura>listar(){
         return this.asignaturaServicio.listar(); 
+    }
+    
+    private int convertirEntero(String numero)
+    {
+        try{
+            return Integer.valueOf(numero);
+        }catch(NumberFormatException e){
+            throw new RuntimeException("Valor ingresado no es un número entero"); 
+        }catch(Exception e){
+            throw new RuntimeException("Error inesperado"); 
+        }
     }
 }

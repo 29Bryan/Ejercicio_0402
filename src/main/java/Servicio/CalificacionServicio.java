@@ -22,10 +22,14 @@ public class CalificacionServicio implements ICalifiacionServicio{
         
         if(calificacionBuscando==null){
             this.calificacionList.add(calificacion);
-        }else{
+        }
+        else{
             throw new RuntimeException("El Grupo ingresada ya se encuentra "+
                     "asignado a la Asignatura: "+ calificacionBuscando.getAsignatura()); 
-        } 
+        }
+//        else{
+//                throw new RuntimeException("Solo se acepta valores enteros en Grupo "+calificacionBuscando.getGrupo()); 
+//        } 
         return calificacion; 
     }
 
