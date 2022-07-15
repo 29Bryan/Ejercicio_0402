@@ -18,23 +18,23 @@ public class CalificacionServicio implements ICalifiacionServicio{
     @Override
     public Calificacion crear(Calificacion calificacion) {
         
-        var calificacionBuscando = this.buscarPorNombreAsignatura(calificacion.getAsignatura());
+        var calificacionBuscando = this.buscarPorNombreAsignatura(calificacion.getGrupo());
         
         if(calificacionBuscando==null){
             this.calificacionList.add(calificacion);
         }else{
-            throw new RuntimeException("La Asigntarura ingresada ya se encuentra "+
-                    "asignado a la Calificacion: "+ calificacionBuscando.getAsignatura()); 
+            throw new RuntimeException("El Grupo ingresada ya se encuentra "+
+                    "asignado a la Asignatura: "+ calificacionBuscando.getAsignatura()); 
         } 
         return calificacion; 
     }
 
     @Override
-    public Calificacion buscarPorNombreAsignatura(String asignatura) {
+    public Calificacion buscarPorNombreAsignatura(int grupo) {
         Calificacion calificacion = null; 
-        for(var x:this.calificacionList){
-            if(calificacion.equals(x.getAsignatura())){
-                calificacion = x; 
+        for(var w:this.calificacionList){
+            if(grupo == w.getGrupo()){
+                calificacion =w; 
                 break;
             }
         }

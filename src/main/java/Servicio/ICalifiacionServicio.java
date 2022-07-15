@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface ICalifiacionServicio {
     public Calificacion crear (Calificacion calificacion);
-    public Calificacion buscarPorNombreAsignatura(String asignatura); 
+    public Calificacion buscarPorNombreAsignatura(int grupo); 
     public List<Calificacion>listar(); 
             
             
