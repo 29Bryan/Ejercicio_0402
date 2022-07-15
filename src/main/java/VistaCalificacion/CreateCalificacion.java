@@ -165,11 +165,15 @@ public class CreateCalificacion extends javax.swing.JInternalFrame {
             args[2]=this.jTextField3.getText();
             args[3]=this.jTextField4.getText();
             args[4]=this.jComboBox1.getSelectedItem().toString();
-
-            calificacionControl.crear(args); 
-
-            JOptionPane.showMessageDialog(this, "Calificacion Registrada con Exito",
-                                          "Registro de Calificaciones",JOptionPane.ERROR_MESSAGE);
+            
+            try{
+                calificacionControl.crear(args); 
+                JOptionPane.showMessageDialog(this, "Calificacion Registrada con Exito",
+                                          "Registro de Calificaciones",JOptionPane.INFORMATION_MESSAGE);
+            }catch(RuntimeException e){
+                JOptionPane.showMessageDialog(this, e.getMessage(),
+                        "Error al almacenar la Calificacion",JOptionPane.ERROR_MESSAGE);
+            }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
