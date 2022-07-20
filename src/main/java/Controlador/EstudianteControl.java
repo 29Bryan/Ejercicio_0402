@@ -30,7 +30,7 @@ public class EstudianteControl {
         try{
             return Integer.valueOf(numero);
         }catch(NumberFormatException e){
-            throw new RuntimeException("Valor ingresado no es un número entero"); 
+            throw new RuntimeException("Valor ingresado en la Edad no es un número entero"); 
         }catch(Exception e){
             throw new RuntimeException("Error inesperado"); 
         }

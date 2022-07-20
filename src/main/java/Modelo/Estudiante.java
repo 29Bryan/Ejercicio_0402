@@ -4,11 +4,13 @@
  */
 package Modelo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author PCG
  */
-public class Estudiante {
+public class Estudiante implements Serializable{
     private String nombre; 
     private int edad; 
     private int numeroCedula; 
