@@ -18,4 +18,6 @@ public interface IAsignaturaServicio {
     public Asignatura buscarPorCodigoAsignatura(String codigo); 
     public int buscarPosicion(Asignatura asignatura); 
     public List<Asignatura>listar();
+    public boolean almacenarEnArchivo(Asignatura asignatura, String rutaArchivo) throws Exception;
+    public List<Asignatura> recuperarDeArchivo(String rutaArchivo) throws Exception;
 }

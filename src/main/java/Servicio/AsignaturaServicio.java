@@ -5,6 +5,11 @@
 package Servicio;
 
 import Modelo.Asignatura;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +29,10 @@ public class AsignaturaServicio implements IAsignaturaServicio{
         }else{
             throw new RuntimeException("El Codigo ingresado ya se encuentra" 
                                     + "asignado a la Asignatura: "+ asignaturaBuscada.getNombre()); 
+        }try{
+            this.almacenarEnArchivo(asignatura,"C:/Capeta_04_02/archivoAsignatura.dat"); 
+        }catch(Exception ex){
+            throw new RuntimeException("No se puede almacenar en archivo"+ex.getMessage()); 
         }
         return asignatura; 
     }
@@ -74,6 +83,45 @@ public class AsignaturaServicio implements IAsignaturaServicio{
     @Override
     public List<Asignatura> listar() {
         return this.asignaturaList;
+    }
+
+    @Override
+    public boolean almacenarEnArchivo(Asignatura asignatura, String rutaArchivo) throws Exception {
+        var retorno = false; 
+        DataOutputStream salida = null; 
+        try{
+            salida = new DataOutputStream(new FileOutputStream(rutaArchivo,true)); 
+            salida.writeUTF(asignatura.getNombre());
+            salida.writeUTF(asignatura.getCodigo());
+            salida.writeUTF(asignatura.getModalidad());
+            salida.writeUTF(asignatura.getCostoHora());
+            salida.writeInt(asignatura.getNumeroHoras());
+            retorno = true; 
+        }catch(IOException e){
+            salida.close();
+        }
+        return retorno; 
+    }
+
+    @Override
+    public List<Asignatura> recuperarDeArchivo(String rutaArchivo) throws Exception {
+        var asignaturaList = new ArrayList<Asignatura>(); 
+        DataInputStream entrada = null; 
+        try{
+            entrada = new DataInputStream(new FileInputStream(rutaArchivo)); 
+            while(true){
+                var nombre = entrada.readUTF(); 
+                var codigo = entrada.readUTF(); 
+                var modalidad = entrada.readUTF(); 
+                var costoHora = entrada.readUTF(); 
+                var numeroHoras = entrada.readInt(); 
+                var asignatura = new Asignatura(nombre, codigo, modalidad, costoHora, numeroHoras); 
+                asignaturaList.add(asignatura); 
+            }
+        }catch(IOException e){
+            entrada.close();
+        }
+        return AsignaturaServicio.asignaturaList; 
     }
     
 }

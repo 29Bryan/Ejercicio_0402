@@ -15,6 +15,8 @@ public interface ICalifiacionServicio {
     public Calificacion crear (Calificacion calificacion);
     public Calificacion buscarPorNombreAsignatura(int grupo); 
     public List<Calificacion>listar(); 
+    public boolean almacenarEnArchivo(Calificacion calificacion, String rutaArchivo) throws Exception;
+    public List<Calificacion> recuperarDeArchivo(String rutaArchivo) throws Exception;
             
             
 }

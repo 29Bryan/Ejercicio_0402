@@ -4,11 +4,13 @@
  */
 package Modelo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author PCG
  */
-public class Calificacion {
+public class Calificacion implements Serializable{
     private String nivel; 
     private String asignatura; 
     private int grupo; 
